@@ -16,7 +16,7 @@ function preload(){
 monkey_running =            loadAnimation("sprite_0.png","sprite_1.png","sprite_2.png","sprite_3.png","sprite_4.png","sprite_5.png","sprite_6.png","sprite_7.png","sprite_8.png")
   bananaImage = loadImage("banana.png");
   obstacleImage = loadImage("obstacle.png");
-  monkeyImage=loadAnimation("sprite_0.png")
+  monkeyImage=loadAnimation("sprite_6.png");
 }
 
 function setup() {
@@ -76,9 +76,9 @@ background("white");
     bananaGroup.setVelocityXEach=0;
     obstacleGroup.setLifetimeEach(-1);
     bananaGroup.setLifetimeEach(-1);
-    monkey.changeAnimation("stop",monkeyImage)
+    monkey.changeAnimation("monkeyImage")
     text("GAME OVER",250,250);
-    
+    reset();
   }
   
   drawSprites();
@@ -110,6 +110,13 @@ function obstacles() {
     }
 }
 
-
+function reset(){
+  if(keyDown("enter")){
+    gameState=PLAY;
+    score=0;
+    survivalTime=0;
+    frameCount=0;
+  }
+}
 
 
